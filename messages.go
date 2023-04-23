@@ -68,6 +68,7 @@ type QuotaResp struct {
 type FilesMsg struct {
 	Cmd string `json:"a"`
 	C   int    `json:"c"`
+	R   int    `json:"r"`
 }
 
 type FSNode struct {

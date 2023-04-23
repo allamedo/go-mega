@@ -745,7 +745,7 @@ func (m *Mega) addFSNode(itm FSNode) (*Node, error) {
 				return nil, err
 			}
 			// Shared folder
-		case itm.SUser != "" && itm.SKey != "":
+		case itm.SUser != "":
 			sk, err := base64urldecode(itm.SKey)
 			if err != nil {
 				return nil, err
@@ -926,6 +926,7 @@ func (m *Mega) getFileSystem() error {
 
 	msg[0].Cmd = "f"
 	msg[0].C = 1
+	msg[0].R = 1
 
 	req, err := json.Marshal(msg)
 	if err != nil {

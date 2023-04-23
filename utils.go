@@ -332,6 +332,8 @@ func decryptAttr(key []byte, data string) (attr FileAttr, err error) {
 			str = trimmed
 		}
 		err = json.Unmarshal([]byte(str), &attr)
+	} else {
+		return attr, EBADATTR
 	}
 	return attr, err
 }
